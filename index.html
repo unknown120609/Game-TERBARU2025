@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZK988 — Download Aplikasi</title>
+  <style>
+    :root{
+      --accent:#ffcc33;
+      --accent-dark:#f39c12;
+      --bg1:#2b0b4a;
+      --bg2:#5a1fb8;
+      --glass: rgba(255,255,255,0.08);
+      --card: rgba(255,255,255,0.06);
+      font-family: 'Segoe UI', Roboto, system-ui, Arial;
+    }
+    html,body{height:100%;margin:0}
+    body{
+      background: linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%);
+      color:#fff;display:flex;align-items:center;justify-content:center;padding:24px;
+    }
+    .wrap{width:100%;max-width:420px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.5);overflow:hidden}
+    .hero{
+      padding:18px;background:radial-gradient(circle at 10% 10%, rgba(255,255,255,0.04), transparent 10%);
+    }
+    .logo{
+      display:flex;align-items:center;gap:12px;
+    }
+    .logo .badge{background:linear-gradient(90deg,var(--accent),var(--accent-dark));padding:6px 12px;border-radius:10px;font-weight:700;color:#111}
+    .headline{margin-top:14px;font-size:20px;font-weight:700;letter-spacing:0.2px}
+    .sub{margin-top:8px;font-size:13px;opacity:0.95}.btn-area{display:flex;gap:12px;align-items:center;margin-top:16px}
+.primary-btn{
+  flex:1;padding:12px 14px;border-radius:10px;background:linear-gradient(180deg,var(--accent),var(--accent-dark));color:#111;font-weight:800;border:none;font-size:15px;cursor:pointer;box-shadow:0 6px 18px rgba(243,156,18,0.25);
+}
+.primary-btn:active{transform:translateY(1px)}
+
+.games{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px}
+.game-tile{background:var(--card);border-radius:10px;padding:10px;text-align:center;font-size:11px}
+
+.footer{padding:12px;background:linear-gradient(180deg, rgba(0,0,0,0.15), transparent);display:flex;align-items:center;justify-content:space-between}
+.download-mini{background:var(--accent);color:#111;padding:8px 10px;border-radius:8px;font-weight:700;cursor:pointer}
+
+/* small screen tweak */
+@media (max-width:420px){.headline{font-size:18px}}
+
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <div class="hero">
+      <div class="logo">
+        <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(90deg,#ff8a00,#ffd25a);display:flex;align-items:center;justify-content:center;font-weight:900;color:#111">ZK</div>
+        <div>
+          <div style="font-size:18px;font-weight:900">ZK988</div>
+          <div style="font-size:12px;opacity:0.9">Bisa top up & narik dimanapun dan kapanpun</div>
+        </div>
+      </div><div class="headline">Permainan & Hadiah Seru</div>
+  <div class="sub">Gunakan aplikasi untuk bermain dalam game dan dapatkan hadiah serta manfaat yang lebih banyak.</div>
+
+  <div class="btn-area">
+    <!-- Button requested to be "Download Aplikasi" and redirect to user's link -->
+    <button id="downloadButton" class="primary-btn" aria-label="Download Aplikasi">Download Aplikasi</button>
+  </div>
+
+</div>
+
+<div class="games" aria-hidden="true">
+  <!-- sample game icons to resemble the layout -->
+  <div class="game-tile">Moon Princess</div>
+  <div class="game-tile">The Dog House</div>
+  <div class="game-tile">Mahjong Ways</div>
+  <div class="game-tile">Lucky Neko</div>
+  <div class="game-tile">Rising Fortunes</div>
+  <div class="game-tile">Wisdom of Athena</div>
+  <div class="game-tile">Gates of Olympus</div>
+  <div class="game-tile">Sweet Bonanza</div>
+  <div class="game-tile">Shoot Fish</div>
+  <div class="game-tile">Dragon Tiger</div>
+  <div class="game-tile">Fortune Dragon</div>
+  <div class="game-tile">Mystic Egypt</div>
+</div>
+
+<div class="footer">
+  <div style="font-weight:700">Permainan mencari uang paling menarik di dunia</div>
+  <div class="download-mini" id="downloadMini">Download</div>
+</div>
+
+  </div>  <script>
+    // === User-provided redirect link ===
+    const redirectUrl = 'https://www.zk988.com?chn=bnRfems5ODhfY3Qz&id=NDAyMDU0MjY3';
+
+    // Attach click handlers to buttons — immediate redirect
+    document.getElementById('downloadButton').addEventListener('click', function(){
+      // use location.replace so back button doesn't return to the splash page
+      window.location.replace(redirectUrl);
+    });
+    document.getElementById('downloadMini').addEventListener('click', function(){
+      window.location.replace(redirectUrl);
+    });
+
+    // accessibility: allow Enter key on focused button
+    document.getElementById('downloadButton').addEventListener('keyup', function(e){ if(e.key === 'Enter'){ window.location.replace(redirectUrl); } });
+  </script></body>
+</html>
